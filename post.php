@@ -23,3 +23,21 @@
  * - `getPostDetails` fonksiyonu tetiklenerek ilgili içeriğin çıktısı gösterilmeli.
  */
 
+//This condition control if there is a id or not. If there is not, give it default values.
+if(!isset($id)){
+		$id = 1;
+		$title = 'Default Content';
+		$title["type"] = 'urgent';
+	}
+//color variable takes a color according to type of title
+$color = match($title["type"]){
+	'urgent' 	=> 'red',
+	'warning'	=> 'yellow',
+	'normal'	=> ''
+};
+//print post detail according to detail.
+echo "<div style='background-color:".$color."'>";
+getPostDetails($id,$title["title"]);
+echo "</div>";
+
+

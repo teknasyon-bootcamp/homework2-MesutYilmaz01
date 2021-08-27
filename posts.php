@@ -20,3 +20,10 @@
  * dosyasını döngü içinde dahil etmeli ve her yazı için detayları göstermelisiniz.
  */
 
+include 'functions.php';
+$random_number = getRandomPostCount(1,50);	//generates a random integer
+$posts = getLatestPosts($random_number);	//get post with this random number
+
+foreach($posts as $id => $title){	//print for each
+	include 'post.php';				//from included code
+}
